@@ -4,6 +4,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Navbar from './components/Navbar/Navbar'
+import EffectExample from './components/EffectExample';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
             <Route path='/category/:categoryId' element={<ItemListContainer greeting='Productos filtrados'/>} />
             <Route path='/detail/:productId' element={<ItemDetailContainer />} />
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </BrowserRouter>
         <button onClick={() => {setShow(!show)}}>show/hide</button>
           { show && <EffectExample /> }
