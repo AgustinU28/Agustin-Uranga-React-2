@@ -17,4 +17,4 @@ const EffectExample = () => {
     )
 }
 
-export default EffectExample
+export default EffectExample;

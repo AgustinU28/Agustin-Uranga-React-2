@@ -1,16 +1,18 @@
 const products = [
     { 
         id: '1', 
-        name: 'iphone 12', 
-        price: 1000, 
+        name: 'iphone 14', 
+        price: 1400, 
         category: 'celular', 
-        img:'https://itechstore.com.ar/wp-content/uploads/2020/06/iphone-12-pro-gold-hero-600x710.png', 
+        img:'https://d500.epimg.net/cincodias/imagenes/2022/10/04/smartphones/1664888888_232618_1664889212_sumario_normal.jpg', 
         stock: 25, 
-        description:'Descripcion de Iphone 12'
+        description:'Descripcion de Iphone 14',
     },
-    { id: '2', name: 'samsung s21', price: 800, category: 'celular', img:'https://cdn.pocket-lint.com/r/s/1200x630/assets/images/155378-phones-review-hands-on-samsung-galaxy-s21-ultra-image1-luae09ici4.JPG', stock: 16, description:'Descripcion de Samsung s21'},
-    { id: '3', name: 'Ipad 8va generacion', price: 1200, category: 'tablet', img:'https://medias.musimundo.com/medias/00406046-143516-143516-01-143516-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w1MjI1MnxpbWFnZS9qcGVnfGhjMC9oYWMvMTAyODM0OTc0NTU2NDYvMDA0MDYwNDYtMTQzNTE2LTE0MzUxNl8wMS0xNDM1MTZfMDEuanBnX3NpemU1MTV8MzA0NmMzNGFhZjUwMDY2YjY5MjU0MjlkMGJlYWMxODAxZjE5ODJhZmJlOTczZThmZjE2NTQxMjU5NjE2OTA4Yw', stock: 10, description:'Descripcion de Ipad'}
+    { id: '2', name: 'samsung s22 ULTRA', price: 2000, category: 'celular', img:'https://http2.mlstatic.com/D_NQ_NP_635300-MLA52140990600_102022-O.jpg', stock: 16, description:'Descripcion de Samsung s22 ULTRA'},
+    { id: '3', name: 'Tablet 2023', price: 3000, category: 'tablet', img:'https://s1.eestatic.com/2021/12/03/actualidad/631948900_217191977_1024x576.jpg', stock: 10, description:'Descripcion de Tablet 2023'},
+    { id: '4', name: 'MSI GAMER', price: 5000, category: 'Notebooks', img:'https://infoservice-cba.com.ar/wp-content/uploads/2022/07/MSI-GF63-THIN-GAMING-10SCXR-222.jpg', stock: 10, description:'Descripcion de MSI GAMER'},
 ]
+
 
 
 export const getProducts = (categoryId) => {
@@ -37,3 +39,4 @@ export const getProductById = (id) => {
         }, 500)
     })
 }
+
