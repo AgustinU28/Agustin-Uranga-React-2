@@ -2,8 +2,8 @@ import { collection, query, where, documentId, getDocs, writeBatch, addDoc } fro
 import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
 import { db } from "../../services/firebase/firebaseConfig"
-
 import { useNavigate } from "react-router-dom"
+
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)

@@ -8,6 +8,7 @@ import { CartProvider } from './context/CartContext';
 import { NotificationProvider } from './notification/NotificationService';
 import CartContainer from './components/CartContainer/CartContainer';
 
+
 function App() {
   return (
     <div className="App">
