@@ -5,6 +5,7 @@ import { CartContext } from "../../context/CartContext"
 import { Card, CardHeader, CardBody, CardFooter, Heading,Divider,Text, Center } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 import { NotificationContext } from '../../notification/NotificationService'
+import './ItemDetail.css'
 
 
 
