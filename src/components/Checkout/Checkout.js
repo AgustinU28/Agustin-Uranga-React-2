@@ -122,7 +122,7 @@ import { useNavigate } from "react-router-dom"
         <div style={{minHeight:'75vh'}}>
             <Center padding='35px'>
                 <Heading>
-                Checkout
+                Formulario
                 </Heading>    
             </Center>   
             <Center>

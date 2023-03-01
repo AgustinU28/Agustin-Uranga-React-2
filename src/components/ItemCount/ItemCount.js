@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { Button } from '@chakra-ui/react'
+import './ItemCount.css'
 const ItemCount = ({initial = 1 , stock, onConfirm}) => {
     const [quantity, setQuantity] = useState(initial) 
     const increment = () => {
@@ -10,7 +11,6 @@ const ItemCount = ({initial = 1 , stock, onConfirm}) => {
             }
     }
 
-    
     const decrement = () => {
         if(quantity > 1){
         setQuantity(prev => prev -1)    
