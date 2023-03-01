@@ -110,7 +110,7 @@ import { useNavigate } from "react-router-dom"
             return (
                 <Center style={{minHeight:'75vh'}}>
                     <Heading>
-                        <h1>El Id de su compra es: {orderId}</h1>
+                        El Id de su compra es: {orderId}
                     </Heading>
                 </Center>
             )
