@@ -1,7 +1,6 @@
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
 import './Navbar.css'
-
 import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
@@ -10,7 +9,7 @@ const NavBar = () => {
 
   return (
     <nav className="NavBar" >
-          <h3 onClick={() => navigate('/')}>Ecommerce</h3>
+          <h3 onClick={() => navigate('/')}>Tienda de tecnologia</h3>
         <div className="Categories">
           <NavLink to={`/category/celular`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Celulares</NavLink>
           <NavLink to={`/category/tablet`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Tablets</NavLink>

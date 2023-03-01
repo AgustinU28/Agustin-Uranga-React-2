@@ -1,53 +1,71 @@
-import './ItemDetail.css'
-import { useContext } from 'react'
-import ItemCount from '../ItemCount/ItemCount'
-import { Link } from 'react-router-dom'
-import { CartContext } from '../../context/CartContext'
+import { Link } from "react-router-dom"
+import { useContext, useState } from "react"
+import ItemCount from "../ItemCount/ItemCount"
+import { CartContext } from "../../context/CartContext"
+import { Card, CardHeader, CardBody, CardFooter, Heading,Divider,Text, Center } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/react'
 import { NotificationContext } from '../../notification/NotificationService'
 
+
+
 const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
-    const { addItem, isInCart } = useContext(CartContext)
+    const [quantity, setQuantity] = useState(0)
+    const { addItem, isInCart} = useContext(CartContext)
     const setNotification = useContext(NotificationContext)
+    console.log(quantity)
+
 
     const handleOnAdd = (quantity) => {
-        console.log('agregue al carrito: ', quantity)
+        console.log('agregue al carrito: ', quantity)   
+
+        setQuantity(parseInt(quantity))   
+        setNotification(`Se agrego correctamente ${quantity} ${name}`, 5)        
+        addItem({ id, name, price, quantity, img})
         
-        addItem({ id, name, price, quantity})
-        setNotification('error',`Se agrego correctamente ${quantity} ${name}`, 5)
     }
 
     return (
-        <article className="CardItem">
-            <header className="Header">
-                <h2 className="ItemHeader">
+        <div>
+            <Card minW='xs' maxW='sm'>
+            <CardHeader>
+                <Heading size='md'>
                     {name}
-                </h2>
-            </header>
-            <picture>
-                <img src={img} alt={name} className="ItemImg"/>
-            </picture>
-            <section>
-                <p className="Info">
-                    Categoria: {category}
-                </p>
-                <p className="Info">
-                    Descripción: {description}
-                </p>
-                <p className="Info">
-                    Precio: {price}
-                </p>
-            </section>           
-            <footer className='ItemFooter'>
-                {
-                    isInCart(id) ? (
-                        <Link to='/cart'>Terminar compra</Link>
-                    ) : (
-                        <ItemCount stock={stock} onAdd={handleOnAdd} />
-                    )
-                }
-            </footer>
-        </article>
+                </Heading>
+            </CardHeader>
+            <CardBody >
+                <Center>           
+                    <Image src={img} alt={name} borderRadius='lg' boxSize='250px'
+                    objectFit='cover'/>
+                </Center>
+                    <Divider />
+                <Center mt={5}>
+                    <Text color='blue.600' fontSize='1.5rem'>
+                        ${price}
+                    </Text>
+                </Center>
+                <Center>
+                    <Text fontSize='1rem'>
+                        {category}
+                    </Text>
+                </Center>
+                <Center>
+                    <Text fontSize='1rem'>
+                        {description}
+                    </Text>
+
+                </Center>
+                <CardFooter>
+                    {
+                        isInCart(id) ?(
+                            <Link to='/cart'>Terminar compra</Link>    
+                        ) : (
+                        <ItemCount stock={stock} onConfirm={handleOnAdd} className='ItemCount'/>
+                        )
+                    }
+                </CardFooter>
+            </CardBody>
+        </Card>
+    </div>
     )
 }
-
 export default ItemDetail

@@ -8,48 +8,49 @@ export const CartProvider = ({ children }) => {
 
     const addItem = (productToAdd) => {
         if(!isInCart(productToAdd.id)) {
-          setCart(prev => {
+            setCart(prev => {
             console.log(prev)
             return [...prev, productToAdd]
-          })
+            })
         } else {
-          console.error('YA ESTA AGREGADO')
+            console.error('pitini')
         }
     }
 
     const isInCart = (id) => cart.some(prod => id === prod.id)
 
+    const deleteItem = (id) =>{
+        const cartUpdate = cart.filter(prod => prod.id !== id)
+        setCart(cartUpdate)
+    }
     const getTotalQuantity = () => {
-      let accu = 0
+        let accu = 0
 
-      cart.forEach(prod => {
+        cart.forEach(prod => {
         accu += prod.quantity
-      })
+        })
 
-      return accu
-    }
-
+        return accu
+        }
     const getTotal = () => {
-      let total = 0
+        let total = 0
 
-      cart.forEach(prod => {
+        cart.forEach(prod => {
         total += prod.quantity * prod.price
-      })
+        })
 
-      return total
-    }
-
+        return total
+        }
+    
+    const total = getTotal()
     const totalQuantity = getTotalQuantity()
 
-    const total = getTotal()
-
     const clearCart = () => {
-      setCart([])
-    }
-
+        setCart([])
+      }
     return (
-        <CartContext.Provider value={{ cart, addItem, isInCart, totalQuantity, total, clearCart}}>
+        <CartContext.Provider value={{addItem, isInCart, totalQuantity, total, cart, clearCart, deleteItem}}>
             { children }
         </CartContext.Provider>
     )
-}
+} 
